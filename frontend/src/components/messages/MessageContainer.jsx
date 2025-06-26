@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import useListenMessages from "../../hooks/useListenMessages"; 
 import useConversation from "../../zustand/useConversation";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
@@ -7,7 +8,7 @@ import { useAuthContext } from "../../context/AuthContext";
 
 const MessageContainer = () => {
 	const { selectedConversation, setSelectedConversation } = useConversation();
-
+	useListenMessages(); 
 	useEffect(() => {
 		// cleanup function (unmounts)
 		return () => setSelectedConversation(null);
